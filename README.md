@@ -10,18 +10,16 @@ Scrapes the comments on a [VLR.gg](https://www.vlr.gg) match page, pulls out sco
 
 ### ✨ Features
 - 🌐 Downloads every comment on a match page (`requests` + BeautifulSoup)
-- 🔎 Keeps comments that mention either team with a score, like `LOUD 2-1 GenG`
-- 📊 Sorts the matching predictions by score
+- 🔎 Keeps comments that mention either team with a score, like `LOUD 2-1 GenG` (team names are matched case-insensitively)
+- 📊 Rewrites every prediction from the first team's side (`GenG 1-2 LOUD` counts as `LOUD 2-1 GenG`) and sorts them
 - 🏆 Prints the most repeated prediction and how many times it appeared
 
 ### 🚀 Quick start
 ```bash
-pip install requests beautifulsoup4
+pip install -r requirements.txt
 python3 all.py
 ```
 Paste a VLR.gg match URL and the two team names when asked. Intermediate results are written to `output.txt` (raw comments), `scores.txt` (filtered) and `processed_scores.txt` (sorted).
-
-`all.py` is the complete script. The other `.py` files are earlier split-up or experimental versions of the same steps.
 
 ### 📄 License
 MIT
